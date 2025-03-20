@@ -1,0 +1,16 @@
+void insertionSortSimple(int *arr, int size) {
+  for (int i = 1; i <= size; i++) {
+    for (int j = i; j > 0; j--) {
+      if (arr[j] < arr[j-1]) {
+        int temp = arr[j];
+        arr[j] = arr[j-1];
+        arr[j-1] = temp;
+      }
+    }
+  }
+
+}
+
+void insertionSortAdvanced(int *arr, int size) {
+
+}
