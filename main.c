@@ -9,7 +9,7 @@
 
 int main() {
   srand(time(0));
-  int size = 100000;
+  int size = 200000;
   int *arr = (int*)malloc(sizeof(int) * size);
   for (int i = 0; i < size; i++) {
     arr[i] = rand();
@@ -17,8 +17,8 @@ int main() {
   // printArray(arr, size);
   printf("\n");
   printf("Comecando...\n");
-  insertionSortSimple(arr, size);
-  printf("Terminou...");
+  insertionSortAdvanced(arr, size);
+  printf("Terminou...\n");
   // printArray(arr, size);
   free(arr);
   return 0;
