@@ -14,9 +14,7 @@ void insertionSortSimple(int *arr, int size) {
 void insertionSortAdvanced(int *arr, int size) {
   for (int i = size-1; i > 0; i--) {
     if (arr[i] < arr[i-1]) {
-      int temp = arr[i];
-      arr[i] = arr[i-1];
-      arr[i-1] = temp; 
+      exchange(arr + i, arr + i -1);
     }
   }
   for (int i = 2; i < size; i++) {

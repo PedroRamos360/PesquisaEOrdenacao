@@ -7,3 +7,9 @@ void printArray(int *arr, int size) {
     printf("%d, ", arr[i]);
   }
 }
+
+void exchange(int *a, int *b) {
+  int temp = *a;
+  *a = *b;
+  *b = temp;
+}
