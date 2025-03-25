@@ -11,16 +11,16 @@
 
 int main() {
   srand(time(0));
-  // int size = 6 400 000;
-  int size = 5;
+  int size = 6400000;
+  // int size = 5;
   int *arr = (int*)malloc(sizeof(int) * size);
   for (int i = 0; i < size; i++) {
     arr[i] = rand();
   }
-  printArray(arr, size);
+  // printArray(arr, size);
   printf("\n");
-  quickSort(arr, size);
-  printArray(arr, size);
+  shellSort(arr, 0, size-1);
+  // printArray(arr, size);
   free(arr);
   return 0;
 }

@@ -1,36 +1,28 @@
-int* partition(int *arr, int size, int pivot);
+int partition(int *arr, int low, int high) {
+  int pivot = arr[high];
+  int i = low - 1;
 
-void quickSort(int *arr, int size) {
-  int pivot = arr[0];
-  arr = partition(arr, size, pivot);
+  for (int j = low; j < high; j++) {
+    if (arr[j] < pivot) {
+      i++;
+      exchange(arr+j, arr+i);
+    } 
+  }
+  exchange(arr+i+1, arr+high);
+
+  return i+1;
 }
 
-int* partition(int *arr, int size, int pivot) {
-  if (size == 1) {
-    return arr;
-  }
-  int *left = (int*)malloc(sizeof(int) * size);
-  int *right = (int*)malloc(sizeof(int) * size);
-  int sizeLeft = 0;
-  int sizeRight = 0;
-  for (int i = 0; i < size; i++) {
-    if (arr[i] >= pivot) {
-      left[sizeLeft] = arr[i];
-      sizeLeft++;
+void quickSort(int *arr, int low, int high) {
+  while (low < high) {
+    int pivotIndex = partition(arr, low, high);
+
+    if (pivotIndex - low < high - pivotIndex) {
+      quickSort(arr, low, pivotIndex - 1);
+      low = pivotIndex + 1; 
     } else {
-      right[sizeRight] = arr[i];
-      sizeRight++;
+      quickSort(arr, pivotIndex + 1, high);
+      high = pivotIndex - 1;
     }
-  }
-  int *leftOrderded = partition(left, sizeLeft, left[0]);
-  int *rightOrdered = partition(right, sizeRight, right[0]);
-  int *end = (int*)malloc(sizeof(int) * size);
-  for (int i = 0; i < size; i++) {
-    if (i < sizeLeft) {
-      end[i] = left[i];
-    } else {
-      end[i] = right[i];
-    }
-  }
-  return end;
+  } 
 }
