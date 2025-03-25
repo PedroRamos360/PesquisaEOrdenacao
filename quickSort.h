@@ -5,11 +5,10 @@ int partition(int *arr, int low, int high) {
   for (int j = low; j < high; j++) {
     if (arr[j] < pivot) {
       i++;
-      exchange(arr+j, arr+i);
-    } 
+      exchange(&arr[j], &arr[i]);
+    }
   }
-  exchange(arr+i+1, arr+high);
-
+  exchange(&arr[i+1], &arr[high]);
   return i+1;
 }
 
@@ -19,10 +18,10 @@ void quickSort(int *arr, int low, int high) {
 
     if (pivotIndex - low < high - pivotIndex) {
       quickSort(arr, low, pivotIndex - 1);
-      low = pivotIndex + 1; 
+      low = pivotIndex + 1;
     } else {
       quickSort(arr, pivotIndex + 1, high);
       high = pivotIndex - 1;
     }
-  } 
+  }
 }
