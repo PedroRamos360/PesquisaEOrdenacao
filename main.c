@@ -7,6 +7,7 @@
 #include "insertionSort.h"
 #include "shellSort.h"
 #include "quickSort.h"
+#include "heapSort.h"
 
 
 int main() {
@@ -19,7 +20,7 @@ int main() {
   }
   printArray(arr, size);
   printf("\n");
-  quickSort(arr, 0, size-1);
+  heapSort(arr, size);
   printArray(arr, size);
   free(arr);
   return 0;
